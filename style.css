@@ -1,0 +1,243 @@
+/* =========================
+   SpendWise Theme
+   ========================= */
+
+:root {
+    --brand-color: #2563eb;
+    --accent-color: #16a34a;
+    --surface-color: #ffffff;
+    --background-color: #f1f5f9;
+    --primary-text: #1e293b;
+    --secondary-text: #64748b;
+    --border-color: #e2e8f0;
+}
+
+
+/* =========================
+   General Styling
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-text);
+}
+
+
+/* =========================
+   Dashboard Grid
+   ========================= */
+
+.dashboard {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+}
+
+
+/* =========================
+   Sidebar
+   ========================= */
+
+.sidebar {
+    background-color: var(--surface-color);
+    border-right: 1px solid var(--border-color);
+    padding: 25px 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    color: var(--brand-color);
+    margin: 0 0 30px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--secondary-text);
+    padding: 12px 15px;
+    border-radius: 8px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background-color: var(--brand-color);
+    color: white;
+}
+
+
+/* =========================
+   Main Content
+   ========================= */
+
+.main-content {
+    padding: 30px;
+}
+
+
+/* =========================
+   Header - Flexbox
+   ========================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    margin: 0 0 5px;
+}
+
+.header p {
+    margin: 0;
+    color: var(--secondary-text);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--secondary-text);
+}
+
+.profile-button {
+    border: none;
+    background-color: var(--brand-color);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   Dashboard Cards - Grid
+   ========================= */
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+/* =========================
+   Individual Cards - Flexbox
+   ========================= */
+
+.card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 22px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+
+    min-height: 160px;
+
+    /* Micro-interaction */
+    transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.card h3 {
+    margin: 0 0 8px;
+}
+
+.card p {
+    margin: 0;
+    color: var(--secondary-text);
+}
+
+.card strong {
+    font-size: 1.4rem;
+    color: var(--accent-color);
+}
+
+
+/* Hover and keyboard focus */
+.card:hover,
+.card:focus {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+}
+
+
+/* Make cards keyboard accessible */
+.card {
+    outline: none;
+}
+
+.card:focus-visible {
+    box-shadow: 0 0 0 3px var(--brand-color);
+}
+
+
+/* =========================
+   Responsive Design
+   ========================= */
+
+@media (max-width: 767px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+}
+
+
+/* =========================
+   Optional Dark Theme
+   ========================= */
+
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        --brand-color: #60a5fa;
+        --accent-color: #4ade80;
+        --surface-color: #1e293b;
+        --background-color: #0f172a;
+        --primary-text: #f8fafc;
+        --secondary-text: #94a3b8;
+        --border-color: #334155;
+    }
+}
